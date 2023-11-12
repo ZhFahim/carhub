@@ -10,10 +10,12 @@ export async function fetchCars(filter: CarFilter) {
     },
   };
 
-  const { brand, model, limit } = filter;
+  const { make, model, fuelType, year, limit } = filter;
 
-  if (brand) url.searchParams.append("make", brand);
+  if (make) url.searchParams.append("make", make);
   if (model) url.searchParams.append("model", model);
+  if (fuelType) url.searchParams.append("fuel_type", fuelType);
+  if (year) url.searchParams.append("year", year.toString());
   url.searchParams.append("limit", limit?.toString() ?? "9");
 
   try {

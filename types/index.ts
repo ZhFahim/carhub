@@ -14,7 +14,7 @@ export interface Car {
 }
 
 export interface CarFilter {
-  brand?: string;
+  make?: string;
   model?: string;
   fuelType?: string;
   year?: number;

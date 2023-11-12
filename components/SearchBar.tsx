@@ -19,7 +19,7 @@ const SearchButton = ({ className }: { className: string }) => (
 
 const SearchBar = () => {
   const router = useRouter();
-  const [brand, setBrand] = useState("");
+  const [make, setMake] = useState("");
   const [model, setModel] = useState("");
 
   const handleSearch = (e: FormEvent<HTMLFormElement>) => {
@@ -27,10 +27,10 @@ const SearchBar = () => {
 
     const searchParams = new URLSearchParams(window.location.search);
 
-    if (brand) {
-      searchParams.set("brand", brand.toLowerCase());
+    if (make) {
+      searchParams.set("make", make.toLowerCase());
     } else {
-      searchParams.delete("brand");
+      searchParams.delete("make");
     }
 
     if (model) {
@@ -49,7 +49,7 @@ const SearchBar = () => {
   return (
     <form onSubmit={handleSearch} className="searchbar">
       <div className="searchbar_item">
-        <SearchBrand brand={brand} onChange={setBrand} />
+        <SearchBrand brand={make} onChange={setMake} />
         <SearchButton className="sm:hidden" />
       </div>
       <div className="searchbar_item">

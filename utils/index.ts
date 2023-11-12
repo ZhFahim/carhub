@@ -24,8 +24,6 @@ export function generateCarImageUrl(car: Car, angle?: string) {
     "customer",
     process.env.NEXT_PUBLIC_IMAGIN_STUDIO_CUSTOMER as string
   );
-  console.log(make);
-  console.log(make.split(" ").join("-"));
   url.searchParams.append("make", make.split(" ").join("-"));
   url.searchParams.append("modelFamily", model.split(" ")[0]);
   url.searchParams.append("modelYear", year.toString());
