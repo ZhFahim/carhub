@@ -3,6 +3,7 @@ import CarCard from "@/components/CarCard";
 import CustomFilter from "@/components/CustomFilter";
 import Hero from "@/components/Hero";
 import SearchBar from "@/components/SearchBar";
+import ShowMore from "@/components/ShowMore";
 import { fuels, yearsOfProduction } from "@/constants";
 import { CarFilter } from "@/types";
 
@@ -40,6 +41,10 @@ export default async function Home({
                 <CarCard key={index} car={car} />
               ))}
             </div>
+            <ShowMore
+              page={(searchParams.limit || 9) / 9}
+              hasNext={(searchParams.limit || 9) > cars.length}
+            />
           </section>
         ) : (
           <div className="home_error-container">

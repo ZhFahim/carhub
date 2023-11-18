@@ -12,7 +12,12 @@ export async function fetchCars(filter: CarFilter) {
 
   const { make, model, fuelType, year, limit } = filter;
 
-  if (make) url.searchParams.append("make", make);
+  if (make) {
+    url.searchParams.append("make", make);
+  } else {
+    // Default year if make doesn't exist
+    url.searchParams.append("year", "2023");
+  }
   if (model) url.searchParams.append("model", model);
   if (fuelType) url.searchParams.append("fuel_type", fuelType);
   if (year) url.searchParams.append("year", year.toString());
